@@ -9,10 +9,21 @@
   <link rel="stylesheet" href="css/css.css">
 
   <!--引入初始化 Parse 的 js 檔案-->
-  <script type="text/javascript" src="<!--引入初始化 Parse 的 js 檔案-->"></script>
+  <script type="text/javascript" src="js/key.js"></script>
   <script  type="text/javascript">
     $(document).on('submit','#signUpForm',function(e){
       console.log('signUp submit');
+	  e.preventDefault();
+	  var usr  = $('#username').val();
+	  var mail = $('#email').val();
+	  var pwd  = $('#password').val();
+	  var role = $('.radio-inline:checked').val();
+	  
+	  console.log(usr);
+	  console.log(mail);
+	  console.log(pwd);
+	  console.log(role);
+	  
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示1 : 記得使用 preventDefault 方程 避免表單轉址
 
