@@ -13,6 +13,21 @@
   <script  type="text/javascript">
     $(document).on('submit','#logInForm',function(e){
       console.log('logIn submit');
+	  e.preventDefault();
+	  var usr  = $('#username').val();
+	  var mail = $('#password').val();
+	  
+	  Parse.User.logIn(usr,mail,{
+		  success:function(data){
+			  console.log(Parse.User.current());
+		  	  alert("登入成功");
+			  window.location="index.html";
+		  },
+		  error:function(data,error){
+			  alert("登入失敗");
+		  }
+	  });
+	  
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示1 : 記得使用 preventDefault 方程 避免表單轉址
         // 提示2 : 請在使用者登入成功後，自動幫助使用者簽到，
