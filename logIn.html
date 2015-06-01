@@ -21,7 +21,19 @@
 		  success:function(data){
 			  console.log(Parse.User.current());
 		  	  alert("登入成功");
-			  window.location="index.html";
+			  var current = Parse.User.current();
+			      current.set("signature",1);
+				  current.save(null,{
+					  success:function(data){
+						  alert("update completely");
+					  },
+					  error:function(data,error){
+						  alert("sorry fail");
+					  }
+				  });
+			  
+			  
+			 window.location="index.html";
 		  },
 		  error:function(data,error){
 			  alert("登入失敗");
